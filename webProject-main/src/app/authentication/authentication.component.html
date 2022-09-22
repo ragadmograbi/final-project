@@ -1,0 +1,6 @@
+
+<div class="fully">
+  <app-login (pageNumber)="changePage($event)" *ngIf="page === 1"></app-login>
+  <app-signup (pageNumber)="changePage($event)" *ngIf="page === 2"></app-signup>
+  <app-reset-password (pageNumber)="changePage($event)" *ngIf="page === 3"></app-reset-password>
+</div>

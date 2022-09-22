@@ -1,0 +1,44 @@
+<!-- Modal -->
+
+<div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="accountModalLabel">Account settings</h5>
+        <button id="closeModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-8">
+            <div class="input-group mb-3">
+            <span class="input-group-text">
+              <mat-icon>lock</mat-icon>
+            </span>
+              <input [(ngModel)]="oldPassword" type="password" class="form-control mat-danger"
+                     id="oldPass" name="pass" placeholder="old password">
+            </div>
+            <div class="input-group mb-3">
+            <span class="input-group-text">
+              <mat-icon>lock</mat-icon>
+            </span>
+              <input [(ngModel)]="newPassword" (keyup)="onPasswordChange()" type="password" class="form-control mat-danger"
+                     id="newPass" name="pass" placeholder="new password">
+            </div>
+            <div class="input-group mb-3">
+            <span class="input-group-text">
+              <mat-icon>lock</mat-icon>
+            </span>
+              <input [(ngModel)]="confirmPassword" type="password" class="form-control mat-danger"
+                     id="confirmNewPass" name="pass" placeholder="confirm password">
+            </div>
+            <div class="progress mb-1">
+              <div id="passwordStrength" class="progress-bar" [style.width.%]="passwordStrength" role="progressbar"
+                   aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <button type="button" class="btn btn-danger mt-2" (click)="changePassword()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

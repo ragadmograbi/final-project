@@ -1,0 +1,23 @@
+<div *ngIf="!showStore"
+  style="position: absolute; background-color: rgba(255, 255, 255, 0.6); width: 100%; height: 100%; z-index: 100000">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    Loading...
+  </div>
+</div>
+
+
+<app-navbar *ngIf="showStore"></app-navbar>
+
+<div class="row w-100" *ngIf="showStore">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="container">
+      <div class="row row-cols-auto gx-4 justify-content-center">
+        <app-item [donate]="child.donate" [info]="child.info" [name]="child.name" [age]="child.age" 
+          [image_name]="child.image_name" class="col-lg-4 d-flex align-items-stretch"
+          *ngFor="let child of childs"></app-item>
+      </div>
+    </div>
+  </div>
+  <div class="col-1"></div>
+</div>

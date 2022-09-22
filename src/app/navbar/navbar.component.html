@@ -1,0 +1,32 @@
+<!--suppress CheckImageSize -->
+<!--suppress HtmlUnknownTarget -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/store">
+      <img src="../../assets/icon.webp" alt="" width="40" height="40" class="d-inline-block align-text-top">
+      &nbsp; Generous Hearts
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <div class="d-flex">
+        <button class="btn me-3 shadow-none" type="button" id="accountDropdown" data-bs-toggle="modal" data-bs-target="#accountModal">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <button class="btn me-4 shadow-none" (click)="gotoCart()">
+          <mat-icon>shopping_cart</mat-icon>
+          <span class="badge rounded-circle bg-gradient text-white" *ngIf="this.badgeCount > 0">{{this.badgeCount}}</span>
+        </button>
+        <button class="btn shadow-none" (click)="handleSignOut()">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<app-user></app-user>

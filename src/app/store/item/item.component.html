@@ -1,0 +1,28 @@
+
+<div class="card mt-3 mb-2 pb-3 text-truncate" style="width: 18rem; background-color: rgba(235, 255, 255, 0.658)">
+  <div class="card-body">
+    <img src="../../../assets/childs/{{image_name}}" class="card-img-top" alt="card image">
+    <p>
+      
+    </p>
+    <h5 class="card-text text-wrap" style="color:salmon;">{{name}}</h5>
+    <p>
+    </p>
+    <h5 class="card-text text-wrap" style="color:rgb(116, 114, 250);">{{age}}</h5>
+    <p>
+
+    </p>
+    <p class="card-text text-wrap overflow-hidden">{{info}}</p>
+    
+    <h2
+    class="text-dark">${{donate}}
+    </h2>
+    <button class="btn btn-dark mb-2" [disabled]="this.firebase.delay" (click)="addItemToCart()">Add to cart
+      </button>
+      <p>
+
+      </p>
+      <button class="btn btn-dark mb-2" [disabled]="this.firebase.delay" (click)="moreInfo()">more info
+      </button>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<li class="list-group-item">
+  <div class="row justify-content-between">
+    <div class="col-9">
+      <img src="assets/products/{{this.data.image_name}}" style="width: 200px; height: 200px"
+           class="float-start img-fluid rounded-circle" alt="ffff">
+      <h2>{{this.data.name}}   ${{this.data.price}}</h2>
+      <p class="text-wrap">{{this.data.description}}
+      </p>
+    </div>
+    <div class="col-3 w-auto fw-bold text-primary">
+      <div class="input-group mb-3" style="max-width: 120px">
+        <span [className]="'input-group-text bg-gradient text-white fw-bolder'.concat(this.firebase.delay ? ' bg-secondary' : ' bg-primary')"
+              style="font-size: large; cursor: pointer; user-select: none" (click)="changeQuantity(1)">↑</span>
+        <input type="text" class="form-control text-center" readonly value="{{this.data.quantity}}">
+        <span [className]="'input-group-text bg-gradient text-white fw-bolder'.concat(this.firebase.delay ? ' bg-secondary' : ' bg-primary')"
+              style="font-size: large; cursor: pointer; user-select: none" (click)="changeQuantity(-1)">↓</span>
+        ${{this.data.quantity * this.data.price}}
+      </div>
+
+      <br>
+      <br>
+      <button type="button" class="btn btn-danger align-self-end" style="font-size: 18px" [attr.data-bs-toggle]="'modal'" [attr.data-bs-target]="'#'+this.modal_id">
+        Remove Item
+        <span>
+          <mat-icon class="float-start">delete_forever</mat-icon>
+        </span>
+      </button>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+</li>
+
+
+<!-- Modal -->
+<div class="modal fade" [id]="this.modal_id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Removing {{this.data.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to remove <b>{{this.data.name}}</b> from your cart?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="removeItem()">Remove</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
