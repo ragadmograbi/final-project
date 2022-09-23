@@ -5,20 +5,19 @@
     <p>
       
     </p>
-    <h5 class="card-text text-wrap" style="color:salmon;">{{name}}</h5>
+    <h5 class="card-text text-wrap" style="color:salmon;">name: {{name}}</h5>
     <p>
     </p>
-    <h5 class="card-text text-wrap" style="color:rgb(116, 114, 250);">{{age}}</h5>
+    <h5 class="card-text text-wrap" style="color:rgb(116, 114, 250);">age: {{age}}</h5>
     <p>
 
     </p>
-    <p class="card-text text-wrap overflow-hidden">{{info}}</p>
+    <p class="card-text text-wrap overflow-hidden">info: {{info}}</p>
     
     <h2
-    class="text-dark">${{donate}}
+    class="text-dark">donate: ${{donate}}
     </h2>
-    <button class="btn btn-dark mb-2" [disabled]="this.firebase.delay" (click)="addItemToCart()">Add to cart
-      </button>
+    
       <p>
 
       </p>
@@ -31,15 +30,24 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" [id]="this.name">Modal title</h5>
+        <h5 class="modal-title" [id]="this.name">name: {{name}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        more info: {{info}}
+        <p>
+      
+        </p>
+        age: {{age}}
+        <p>
+      
+        </p>
+        donate: ${{donate}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button class="btn btn-dark mb-2" [disabled]="this.firebase.delay" (click)="addItemToCart()">donate
+        </button>
       </div>
     </div>
   </div>
