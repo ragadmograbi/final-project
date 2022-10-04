@@ -9,7 +9,8 @@ import {child} from "../store/item/item.component";
 
 interface userData {
   cart: any,
-  name: string
+  name: string,
+  isAdmin: boolean
 }
 
 export interface cartItem {
@@ -62,6 +63,7 @@ export class FirebaseHelper {
       await this.firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(async () => {
         await this.firebaseAuth.signInWithEmailAndPassword(email, password);
         this.user = this.firebaseAuth.currentUser;
+        
       });
     } catch (e) {
       throw new Error('Failed to sign in: ' + e);
@@ -88,8 +90,10 @@ export class FirebaseHelper {
     if (userCredential && userCredential.user && userCredential.user.email) {
       await this.usersCollection.doc(userCredential.user.uid).set({
         'name': userCredential.user.email.split('@')[0],
-        'cart': {}
+        'cart': {},
+        'isAdmin': false
       })
+
     }
   }
 
