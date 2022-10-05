@@ -25,14 +25,11 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.modal_id=this.data.name.replace(/[ ]/g,'_');
+    
   }
 
   async changeQuantity(number: number) {
-    if(this.data.quantity > 9 && number > 0)
-    {
-      this.toaster.createToaster(toasterTypes.warning, 'Maximum 10 bottles per user');
-      return;
-    }
+    
     if(this.data.quantity < 2 && number < 0) {
       this.toaster.createToaster(toasterTypes.warning, 'If you wish to remove the item, use the remove button');
       return;

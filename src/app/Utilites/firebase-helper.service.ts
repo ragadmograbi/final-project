@@ -7,7 +7,8 @@ import 'firebase/compat/auth';
 import {child} from "../store/item/item.component";
 
 
-interface userData {
+
+export interface userData {
   cart: any,
   name: string,
   isAdmin: boolean
@@ -128,6 +129,7 @@ export class FirebaseHelper {
       const data = await this.getProductByName(childs[i].id);
       result.push(data);
     }
+    
     return result;
   }
 
@@ -162,7 +164,7 @@ export class FirebaseHelper {
         donate: prod.donate,
         info: prod.info,
         quantity: Number(quantity),
-        age: 0
+        age: prod.age
       });
     }
     return result;

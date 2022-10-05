@@ -11,10 +11,10 @@ import {NavManagerService} from "./nav-manager.service";
 })
 export class NavbarComponent implements OnInit {
   badgeCount: number = 0;
-  public isAdmin: boolean = true;
-  constructor(private router: Router, private firestore: FirebaseHelper, private toaster: ToasterHelper, public manager: NavManagerService) {
-
-  }
+  public isAdmin: boolean = false;
+  
+  constructor(private router: Router, private firestore: FirebaseHelper, private toaster: ToasterHelper, public manager: NavManagerService) { }
+  
 
   ngOnInit(): void {
     this.manager.currentBadgeNumber.subscribe(num => this.badgeCount = num);
