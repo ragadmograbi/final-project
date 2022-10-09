@@ -1,4 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.btn {
+    background-color: #7adda3;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+<body>
 <li class="list-group-item">
+  <div class="subtitle">
+    <p>Your gift helps kids on the path out of poverty, creating a&nbsp;ripple effect that impacts generations. 
+    <br>(Gifts are 100% tax-deductible.)</p>
+  </div>
   <div class="row justify-content-between">
     <div class="col-9">
       <img src="assets/childs/{{this.data.image_name}}" style="width: 200px; height: 200px"
@@ -6,16 +32,57 @@
       <h2>{{this.data.name}} {{this.data.age}} ${{this.data.donate}}</h2>
       
     </div>
+
+    
+
+
     <div class="col-3 w-auto fw-bold text-primary">
+      <div class="centered ">
+        <div class="donate-frequency-wrap">
+           <div class="active" data-product-id="6" data-recurring-product="false" data-analytics-info="&quot;{\&quot;name\&quot;:\&quot;Our Mission\&quot;,\&quot;sku\&quot;:\&quot;6\&quot;,\&quot;category\&quot;:\&quot;Other\&quot;}&quot;" data-recurring-frequency="one-time" data-product-description="Our mission">
+                 <a class="btn btn-text btn-noarw / btn-full" href="#">One-time</a>
+           </div>
+           <div class="" data-product-id="72" data-recurring-product="true" data-analytics-info="&quot;{\&quot;name\&quot;:\&quot;Our Mission - Recurring\&quot;,\&quot;sku\&quot;:\&quot;72\&quot;,\&quot;category\&quot;:\&quot;Other\&quot;}&quot;" data-recurring-frequency="/month" data-product-description="Our mission - monthly donation">
+                 <a class="btn btn-text btn-noarw / btn-full" href="#">Monthly</a>
+           </div>
+        </div>
+     </div>
+  
+      <fieldset>
+        <div>
+          <input type="radio" id="25" name="drone" value="25"
+                checked>
+          <label for="25">25$</label>
+        </div>
+  
+        <div>
+          <input type="radio" id="50" name="drone" value="50">
+          <label for="50">50$</label>
+        </div>
+  
+        <div>
+          <input type="radio" id="100" name="drone" value="100">
+          <label for="100">100$</label>
+        </div>
+  
+        <div>
+          <input type="radio" id="other" name="drone" value="other">
+          <label for="other">other</label>
+        </div>
+  
+      </fieldset>
+
       <div class="input-group mb-3" style="max-width: 120px">
+        
         <span [className]="'input-group-text bg-gradient text-white fw-bolder'.concat(this.firebase.delay ? ' bg-secondary' : ' bg-primary')"
               style="font-size: large; cursor: pointer; user-select: none" (click)="changeQuantity(1)">↑</span>
         <input type="text" class="form-control text-center" readonly value="{{this.data.quantity}}">
         <span [className]="'input-group-text bg-gradient text-white fw-bolder'.concat(this.firebase.delay ? ' bg-secondary' : ' bg-primary')"
               style="font-size: large; cursor: pointer; user-select: none" (click)="changeQuantity(-1)">↓</span>
-        ${{this.data.quantity * this.data.donate}}
+        ${{this.data.quantity * 10}}
       </div>
-
+      
+      
       <br>
       <br>
       <button type="button" class="btn btn-danger align-self-end" style="font-size: 18px" [attr.data-bs-toggle]="'modal'" [attr.data-bs-target]="'#'+this.modal_id">
@@ -50,4 +117,4 @@
   </div>
 </div>
 
-
+</body>

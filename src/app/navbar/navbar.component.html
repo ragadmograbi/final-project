@@ -10,12 +10,11 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <button *ngIf="this.isAdmin">
-      add child
-    </button>
+    
+    
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-      see our impact
+    <button *ngIf="this.isAdmin" class="btn me-3 shadow-none" type="button" id="Dropdown" data-bs-toggle="modal" data-bs-target="#Modal">
+      add child
     </button>
 
     

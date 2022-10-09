@@ -11,7 +11,7 @@ import {NavManagerService} from "./nav-manager.service";
 })
 export class NavbarComponent implements OnInit {
   badgeCount: number = 0;
-  public isAdmin: boolean = false;
+  public isAdmin: boolean = true;
   
   constructor(private router: Router, private firestore: FirebaseHelper, private toaster: ToasterHelper, public manager: NavManagerService) { }
   
@@ -35,4 +35,10 @@ export class NavbarComponent implements OnInit {
     await this.manager.resetCartBadge();
     await this.router.navigateByUrl('/cart');
   }
+
+  async addChild() {
+    await this.manager.resetCartBadge();
+    await this.router.navigateByUrl('/cart');
+  }
+
 }
