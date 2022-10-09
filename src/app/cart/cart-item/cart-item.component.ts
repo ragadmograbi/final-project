@@ -11,6 +11,7 @@ export class CartItemComponent implements OnInit {
 
   @Input() data: cartItem;
   public modal_id='';
+
   @Output() removeItemEvent = new EventEmitter<string>();
   constructor(private toaster: ToasterHelper, public firebase: FirebaseHelper) {
     this.data = {
@@ -19,7 +20,10 @@ export class CartItemComponent implements OnInit {
       quantity: 0,
       info: '',
       donate: 0,
-      image_name: ''
+      image_name: '',
+      monthlyDonate: 0,
+      oneTimeDonate: 0
+
     }
   }
 

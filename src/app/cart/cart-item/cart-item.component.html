@@ -21,16 +21,19 @@
 </head>
 <body>
 <li class="list-group-item">
-  <div class="subtitle">
-    <p>Your gift helps kids on the path out of poverty, creating a&nbsp;ripple effect that impacts generations. 
-    <br>(Gifts are 100% tax-deductible.)</p>
-  </div>
+  
   <div class="row justify-content-between">
     <div class="col-9">
       <img src="assets/childs/{{this.data.image_name}}" style="width: 200px; height: 200px"
            class="float-start img-fluid rounded-circle" alt="ffff">
-      <h2>{{this.data.name}} {{this.data.age}} ${{this.data.donate}}</h2>
-      
+      <h2>name: {{this.data.name}}
+        <br>
+        age: {{this.data.age}}
+        <br>
+        sponsor a child, donate monthly for 10$ minimum.
+        or donate one time
+      </h2>
+        
     </div>
 
     
@@ -40,13 +43,14 @@
       <div class="centered ">
         <div class="donate-frequency-wrap">
            <div class="active" data-product-id="6" data-recurring-product="false" data-analytics-info="&quot;{\&quot;name\&quot;:\&quot;Our Mission\&quot;,\&quot;sku\&quot;:\&quot;6\&quot;,\&quot;category\&quot;:\&quot;Other\&quot;}&quot;" data-recurring-frequency="one-time" data-product-description="Our mission">
-                 <a class="btn btn-text btn-noarw / btn-full" href="#">One-time</a>
+                 <a class="btn btn-text btn-noarw / btn-full">One-time</a>
            </div>
            <div class="" data-product-id="72" data-recurring-product="true" data-analytics-info="&quot;{\&quot;name\&quot;:\&quot;Our Mission - Recurring\&quot;,\&quot;sku\&quot;:\&quot;72\&quot;,\&quot;category\&quot;:\&quot;Other\&quot;}&quot;" data-recurring-frequency="/month" data-product-description="Our mission - monthly donation">
-                 <a class="btn btn-text btn-noarw / btn-full" href="#">Monthly</a>
+                 <a class="btn btn-text btn-noarw / btn-full" >Monthly</a>
            </div>
         </div>
      </div>
+     
   
       <fieldset>
         <div>
@@ -72,6 +76,7 @@
   
       </fieldset>
 
+      
       <div class="input-group mb-3" style="max-width: 120px">
         
         <span [className]="'input-group-text bg-gradient text-white fw-bolder'.concat(this.firebase.delay ? ' bg-secondary' : ' bg-primary')"

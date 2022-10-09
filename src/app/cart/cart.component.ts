@@ -13,12 +13,18 @@ export class CartComponent implements OnInit {
 
   public totalCount: number = 0;
   public totalPrice: number = 0;
+  public donatenum : number = 0;
+  public monthly_donation : number = 0;
+  public oneTime_donation : number = 0;
+  public totalMonthly : number = 0;
+  public totalOneTime : number = 0;
   constructor(private firebase: FirebaseHelper, private toaster: ToasterHelper) {
     this.firebase.getUserCart().then((res) => {
       this.childs = res;
       this.childs.forEach((item) => {
         this.totalCount += item.quantity;
         this.totalPrice += item.donate * item.quantity;
+        
       })
     });
   }

@@ -20,7 +20,9 @@ export interface cartItem {
   info: string,
   donate: number,
   image_name: string,
-  quantity: number
+  quantity: number,
+  monthlyDonate : number,
+  oneTimeDonate : number
 }
 
 @Injectable({
@@ -164,7 +166,9 @@ export class FirebaseHelper {
         donate: prod.donate,
         info: prod.info,
         quantity: Number(quantity),
-        age: prod.age
+        age: prod.age,
+        monthlyDonate: 0,
+        oneTimeDonate: 0
       });
     }
     return result;

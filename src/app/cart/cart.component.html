@@ -1,5 +1,12 @@
 <app-navbar></app-navbar>
 
+
+<div class="subtitle">
+  <header id="myheader" style="background: rgb(255, 255, 255); color:rgb(2, 70, 0); padding:20px 20px;">
+    <p>Your gift helps kids on the path out of poverty, creating a&nbsp;ripple effect that impacts generations. 
+      <br>(Gifts are 100% tax-deductible.)</p>
+  </header>
+</div>
 <div class="row w-100 justify-content-center">
   <ul class="list-group w-75 mt-3 ps-3">
     <app-cart-item *ngFor="let child of childs" [data]="child" (removeItemEvent)="removeItem($event)"></app-cart-item>
