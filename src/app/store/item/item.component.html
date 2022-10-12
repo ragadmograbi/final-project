@@ -11,9 +11,19 @@
     <h5 class="card-text text-wrap" style="color:rgb(4, 2, 126);">age: {{age}}</h5>
     <p>
 
-    <h2
-    class="text-dark">donate: ${{donate}}
-    </h2>
+    <h6
+    class="text-dark" style="color:rgb(4, 2, 126);">you can donate for me 
+    <br>
+    ${{donate}} monthly 
+    <br>
+    or to choose another way to donate
+    <br>
+     in the
+    
+     donation page
+    <br>
+    your donation can change my life
+    </h6>
     
       <p>
 
@@ -31,7 +41,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        more info: {{info}}
+       {{info}}
         <p>
       
         </p>
@@ -43,7 +53,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button class="btn btn-dark mb-2" [disabled]="this.firebase.delay" (click)="addItemToCart()">donate
+        <button class="btn btn-dark mb-2" [disabled]="this.firebase.delay" (click)="addItemToCart()">add to cart 
         </button>
       </div>
     </div>

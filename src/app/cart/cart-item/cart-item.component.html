@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .btn {
-    background-color: #7adda3;
+    background-color: #ff7d99;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
   }
@@ -26,29 +26,27 @@
     <div class="col-9">
       <img src="assets/childs/{{this.data.image_name}}" style="width: 200px; height: 200px"
            class="float-start img-fluid rounded-circle" alt="ffff">
-      <h2>name: {{this.data.name}}
-        <br>
-        age: {{this.data.age}}
-        <br>
-        sponsor a child, donate monthly for 10$ minimum.
-        or donate one time
-      </h2>
-        
+          
+            
     </div>
+    <h5>name: {{this.data.name}}
+      <br>
+      age: {{this.data.age}}
+      <br>
+      sponsor a child, change a life
+      <br>
+    </h5>
 
+    
     
 
 
     <div class="col-3 w-auto fw-bold text-primary">
       <div class="centered ">
-        <div class="donate-frequency-wrap">
-           <div class="active" data-product-id="6" data-recurring-product="false" data-analytics-info="&quot;{\&quot;name\&quot;:\&quot;Our Mission\&quot;,\&quot;sku\&quot;:\&quot;6\&quot;,\&quot;category\&quot;:\&quot;Other\&quot;}&quot;" data-recurring-frequency="one-time" data-product-description="Our mission">
-                 <a class="btn btn-text btn-noarw / btn-full">One-time</a>
-           </div>
-           <div class="" data-product-id="72" data-recurring-product="true" data-analytics-info="&quot;{\&quot;name\&quot;:\&quot;Our Mission - Recurring\&quot;,\&quot;sku\&quot;:\&quot;72\&quot;,\&quot;category\&quot;:\&quot;Other\&quot;}&quot;" data-recurring-frequency="/month" data-product-description="Our mission - monthly donation">
-                 <a class="btn btn-text btn-noarw / btn-full" >Monthly</a>
-           </div>
-        </div>
+        <button class="btn">one time</button>
+        <button class="btn">monthly</button>
+
+        
      </div>
      
   
