@@ -12,13 +12,17 @@ import {NavManagerService} from "./nav-manager.service";
 export class NavbarComponent implements OnInit {
   badgeCount: number = 0;
   public isAdmin: boolean = true;
+  public name: string = '';
+  public info: string = '';
+  public age: number = 0;
+  public donate: number = 0;
 
   constructor(private router: Router, private firestore: FirebaseHelper, private toaster: ToasterHelper, public manager: NavManagerService) { }
 
 
   ngOnInit(): void {
     this.manager.currentBadgeNumber.subscribe(num => this.badgeCount = num);
-    this.firestore.isAdmin().then(result => this.isAdmin = !result);
+    this.firestore.isAdmin().then(result => this.isAdmin = result);
   }
 
   async handleSignOut() {
@@ -40,6 +44,16 @@ export class NavbarComponent implements OnInit {
   async addChild() {
     await this.manager.resetCartBadge();
     await this.router.navigateByUrl('/cart');
+  }
+
+  async addChildFirebase() {
+    console.log(this.age)
+    await this.firestore.addNewChild(
+      this.age,
+      this.name,
+      this.donate,
+      this.info
+    )
   }
 
 }

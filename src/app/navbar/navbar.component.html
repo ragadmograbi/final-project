@@ -12,11 +12,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     
-    
-
-    <button *ngIf="this.isAdmin" class="btn me-3 shadow-none" type="button" id="Dropdown" data-bs-toggle="modal" data-bs-target="#Modal">
+  
+    <button *ngIf="this.isAdmin" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addchildmodal">
       add child
     </button>
+
 
     
 
@@ -48,6 +48,40 @@
 </header>
 <app-user></app-user>
 
+<div class="modal fade" id="addchildmodal" tabindex="-1" aria-labelledby="addchildmodalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addchildmodalLabel">add child</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+        <div class="input-group mb-3">
+          <span class="input-group-text">name</span>
+          <input [(ngModel)]="this.name"  type="text" class="form-control" placeholder="name" aria-label="name">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">info</span>
+          <input [(ngModel)]="this.info" type="text" class="form-control" placeholder="info" aria-label="info" >
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">age</span>
+          <input [(ngModel)]="this.age" type="text" class="form-control" placeholder="age" aria-label="age" >
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">donate</span>
+          <input [(ngModel)]="this.donate"  type="text" class="form-control" placeholder="donate" aria-label="donate" >
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="this.addChildFirebase()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="receipt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

@@ -244,4 +244,13 @@ export class FirebaseHelper {
     return childInfo;
   }
 
+  async addNewChild(age: number, name: string, donate: number, info: string) {
+    await this.productsCollection.doc(name).set({
+      age: age,
+      name: name,
+      donate: donate,
+      info: info
+    });
+  }
+
 }
