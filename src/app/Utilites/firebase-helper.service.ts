@@ -66,7 +66,7 @@ export class FirebaseHelper {
       await this.firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(async () => {
         await this.firebaseAuth.signInWithEmailAndPassword(email, password);
         this.user = this.firebaseAuth.currentUser;
-        
+
       });
     } catch (e) {
       throw new Error('Failed to sign in: ' + e);
@@ -131,7 +131,7 @@ export class FirebaseHelper {
       const data = await this.getProductByName(childs[i].id);
       result.push(data);
     }
-    
+
     return result;
   }
 
@@ -141,10 +141,21 @@ export class FirebaseHelper {
     if (!doc.exists){
       throw new Error('Item not found  '+item_name);
     }
-      
+
     let data: child = doc.data();
     data.image_name = data.name.replace(/[ ]/g, '_') + '.png';
     return data;
+  }
+
+  async isAdmin(): Promise<boolean> {
+    let flag = 10;
+    while (!this.user && flag-- > 0) {
+      await new Promise(r => setTimeout(r, 100));
+    }
+    if (!this.user)
+      throw new Error('No User!!');
+    const data = <userData>(await this.usersCollection.doc(this.user.uid).get()).data();
+    return data.isAdmin;
   }
 
   // Users collection functions
@@ -232,5 +243,5 @@ export class FirebaseHelper {
 
     return childInfo;
   }
-  
+
 }

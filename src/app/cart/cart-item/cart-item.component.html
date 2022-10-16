@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .btn {
-    background-color: #ff7d99;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -21,13 +20,13 @@
 </head>
 <body>
 <li class="list-group-item">
-  
+
   <div class="row justify-content-between">
     <div class="col-9">
       <img src="assets/childs/{{this.data.image_name}}" style="width: 200px; height: 200px"
            class="float-start img-fluid rounded-circle" alt="ffff">
-          
-            
+
+
     </div>
     <h5>name: {{this.data.name}}
       <br>
@@ -37,46 +36,62 @@
       <br>
     </h5>
 
-    
-    
+
+
 
 
     <div class="col-3 w-auto fw-bold text-primary">
-      <div class="centered ">
-        <button class="btn">one time</button>
-        <button class="btn">monthly</button>
-
-        
+      <div class="centered">
+        <button class="btn btn-primary" id="{{this.data.name}}ButtonOneTime" (click)="selected(0)">one time</button>
+        <button class="btn btn-secondary" id="{{this.data.name}}ButtonMonthly" (click)="selected(1)">monthly</button>
      </div>
-     
-  
-      <fieldset>
+
+
+      <fieldset *ngIf="this.buttonChecked === 0">
         <div>
           <input type="radio" id="25" name="drone" value="25"
                 checked>
           <label for="25">25$</label>
         </div>
-  
+
         <div>
           <input type="radio" id="50" name="drone" value="50">
           <label for="50">50$</label>
         </div>
-  
+
         <div>
           <input type="radio" id="100" name="drone" value="100">
           <label for="100">100$</label>
         </div>
-  
+
         <div>
           <input type="radio" id="other" name="drone" value="other">
           <label for="other">other</label>
         </div>
-  
+
       </fieldset>
 
-      
+      <fieldset *ngIf="this.buttonChecked === 1">
+        <div>
+          <input type="radio" id="month3" name="drone" value="25"
+                 checked>
+          <label for="month3">&nbsp; 3 months</label>
+        </div>
+
+        <div>
+          <input type="radio" id="month6" name="drone" value="50">
+          <label for="month6">&nbsp; 6 months</label>
+        </div>
+
+        <div>
+          <input type="radio" id="month12" name="drone" value="100">
+          <label for="month12">&nbsp; 12 months</label>
+        </div>
+      </fieldset>
+
+
       <div class="input-group mb-3" style="max-width: 120px">
-        
+
         <span [className]="'input-group-text bg-gradient text-white fw-bolder'.concat(this.firebase.delay ? ' bg-secondary' : ' bg-primary')"
               style="font-size: large; cursor: pointer; user-select: none" (click)="changeQuantity(1)">↑</span>
         <input type="text" class="form-control text-center" readonly value="{{this.data.quantity}}">
@@ -84,8 +99,8 @@
               style="font-size: large; cursor: pointer; user-select: none" (click)="changeQuantity(-1)">↓</span>
         ${{this.data.quantity * 10}}
       </div>
-      
-      
+
+
       <br>
       <br>
       <button type="button" class="btn btn-danger align-self-end" style="font-size: 18px" [attr.data-bs-toggle]="'modal'" [attr.data-bs-target]="'#'+this.modal_id">

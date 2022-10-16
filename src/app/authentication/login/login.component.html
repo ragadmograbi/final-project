@@ -10,11 +10,11 @@
     overflow: hidden;
     background-color: rgb(0, 99, 41);
   }
-  
+
   li {
     float: left;
   }
-  
+
   li a {
     display: block;
     color: white;
@@ -22,11 +22,11 @@
     padding: 14px 16px;
     text-decoration: none;
   }
-  
+
   li a:hover {
     background-color: rgb(3, 104, 37);
   }
- 
+
   .btn-primary {
     background-color: #7adda3;
     border: none;
@@ -55,8 +55,8 @@
     color: rgb(0, 0, 0);
     padding: 2px 16px;
   }
-    
-  
+
+
 
 
 
@@ -65,11 +65,11 @@
 <body>
 
   <div class="row h-100 justify-content-center align-items-center m-0 p-0">
-    
+
     <header id="myheader" style="background: rgb(255, 255, 255); color:rgb(2, 70, 0); padding:20px 20px;">
-      <h2>Generous Hearts</h2> <h6> Sponsor a child. Change a life. </h6> 
+      <h2>Generous Hearts</h2> <h6> Sponsor a child. Change a life. </h6>
     </header>
-    
+
     <ul>
 
        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginexampleModal">
@@ -108,15 +108,15 @@
                       <a>
                         Do not have an account?
                       </a>
-                      <button class="btn p-0 link-primary" (click)="changePage(2)">Sign up</button>
+                      <button class="btn p-0 link-primary" (click)="changePage(2)" data-bs-dismiss="modal">Sign up</button>
                     </div>
                     <div>
                       <a>
                         Forgot your password?
                       </a>
-                      <button class="btn p-0 link-primary" (click)="changePage(3)">Reset</button>
+                      <button class="btn p-0 link-primary" (click)="changePage(3)" data-bs-dismiss="modal">Reset</button>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3" (click)="handleLogin(false)">Log in</button>
+                    <button type="submit" class="btn btn-primary mt-3" (click)="handleLogin(false)" data-bs-dismiss="modal">Log in</button>
                     <button type="submit" class="ms-4 btn btn-danger mt-3" (click)="handleLogin(true)">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google"
                           viewBox="0 0 16 16">
@@ -133,7 +133,7 @@
           </div>
         </div>
       </div>
-      
+
 
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
         see our impact
@@ -150,7 +150,7 @@
             <div class="modal-body">
               Little Yojan was born sick. In the time it took for a doctor to diagnose him with a heart condition that required surgery, his mother passed away. See how the support of sponsorship helped Yojan and his family navigate these challenges and get the medical care they needed.
               Thank you to all the people who supported us with Yojan. It was very difficult for all of us here at home to see the child how he was... to see him suddenly healthy....there are no words to say thank you.
-              <iframe width="420" height="345" 
+              <iframe width="420" height="345"
               src="https://www.youtube.com/embed/MCAJhbplfsc?rel=0&amp;showinfo=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.children.org&amp;widgetid=1">
               </iframe>
             </div>
@@ -160,12 +160,12 @@
           </div>
         </div>
       </div>
-      
+
 
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
         why to donate
       </button>
-     
+
       <!-- Modal -->
       <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModal4Label" aria-hidden="true">
         <div class="modal-dialog">
@@ -177,13 +177,13 @@
             <div class="modal-body">
               Children in poverty are more likely to be exposed to the stress of violence,gangs and drugs.
               <br>
-              This can negatively affect brain development and long-term well-being. 
+              This can negatively affect brain development and long-term well-being.
               <br>
               Your support during this vulnerable time helps children and youth set their own goals to build a life free from poverty.
               <br>
               When you sponsor a child, you create a powerful multiplier effect.
               <br>
-              You help them see beyond the daily struggles of life in poverty. 
+              You help them see beyond the daily struggles of life in poverty.
               <br>
               Your support releases them from a cycle of short-term decisions and helps them gain the ability to begin contributing to their own families and communities.
               <br>
@@ -215,12 +215,12 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              GenerousHeart's email: 
-              <br> 
+              GenerousHeart's email:
+              <br>
               generoushearts22@gmail.com
-              <br> 
-              GenerousHeart's phone: 
-              <br> 
+              <br>
+              GenerousHeart's phone:
+              <br>
               +972-506080209
             </div>
             <div class="modal-footer">
@@ -229,14 +229,14 @@
           </div>
         </div>
       </div>
-      
+
     </ul>
-  
+
     <video id="background-video" controls loop autoplay muted>
       <source src="../../assets/vv.mp4" type="video/mp4">
     </video>
-    
-  
+
+
     <div class="col-md-4">
       <div class="card bg-light">
         <div class="card-body">
