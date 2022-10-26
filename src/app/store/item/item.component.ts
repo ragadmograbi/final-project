@@ -38,10 +38,10 @@ export class ItemComponent implements OnInit {
 
   async addItemToCart() {
     try {
-      this.toaster.createToaster(toasterTypes.info, 'Adding item to cart');
+      this.toaster.createToaster(toasterTypes.info, 'Adding child to cart');
       await this.firebase.addItem(this.name);
       this.manager.increaseCartBadge();
-      this.toaster.createToaster(toasterTypes.success, 'Item in cart');
+      this.toaster.createToaster(toasterTypes.success, 'The child was added successfully');
     } catch (e) {
       this.toaster.createToaster(toasterTypes.error, String(e));
     }

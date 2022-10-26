@@ -23,7 +23,7 @@ export class StoreComponent implements OnInit {
   }
 
   async loadData() {
-    this.toaster.createToaster(toasterTypes.info, 'getting store data');
+    this.toaster.createToaster(toasterTypes.info, 'getting charity data');
     const data = await this.firestore.getAllProducts();
     this.toaster.createToaster(toasterTypes.success, 'loading complete');
     data.forEach((prod) => {

@@ -36,7 +36,7 @@ export class CartItemComponent implements OnInit {
   async changeQuantity(number: number) {
 
     if(this.data.quantity < 2 && number < 0) {
-      this.toaster.createToaster(toasterTypes.warning, 'If you wish to remove the item, use the remove button');
+      this.toaster.createToaster(toasterTypes.warning, "Minimum donation is 10$ , You can't donate less than that");
       return;
     }
     if (this.firebase.delay)

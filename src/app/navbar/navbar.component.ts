@@ -47,13 +47,21 @@ export class NavbarComponent implements OnInit {
   }
 
   async addChildFirebase() {
-    console.log(this.age)
-    await this.firestore.addNewChild(
-      this.age,
-      this.name,
-      this.donate,
-      this.info
-    )
+    try{
+
+      console.log(this.age)
+      await this.firestore.addNewChild(
+        this.age,
+        this.name,
+        this.donate,
+        this.info
+      )
+      this.toaster.createToaster(toasterTypes.success, 'child added');
+      } catch (e) {
+        this.toaster.createToaster(toasterTypes.error, 'Failed: ' + e);
+    }
+  
+    
   }
 
 }
