@@ -5,7 +5,8 @@ import {environment} from "../../environments/environment";
 import "firebase/compat/firestore";
 import 'firebase/compat/auth';
 import {child} from "../store/item/item.component";
-
+import {getDownloadURL, uploadString} from 'firebase/storage'
+import "firebase/compat/storage";
 
 
 export interface userData {
@@ -32,6 +33,7 @@ export class FirebaseHelper {
   private readonly firebaseAuth: firebase.auth.Auth;
   private readonly firestore: firebase.firestore.Firestore;
   private readonly firebaseApp: firebase.app.App;
+  private readonly firebaseStorage: firebase.storage.Storage;
   private readonly productsCollection: firebase.firestore.CollectionReference<any>;
   private readonly usersCollection: firebase.firestore.CollectionReference<any>;
 
@@ -42,6 +44,7 @@ export class FirebaseHelper {
     this.firebaseApp = firebase.initializeApp(environment.firebase);
     this.firebaseAuth = this.firebaseApp.auth();
     this.firestore = this.firebaseApp.firestore();
+    this.firebaseStorage = this.firebaseApp.storage();
     this.productsCollection = this.firestore.collection('childs');
     this.usersCollection = this.firestore.collection('users');
 
@@ -252,5 +255,19 @@ export class FirebaseHelper {
       info: info
     });
   }
+
+  async updateProfilePicture(data: string, contentType: string ,child_name: string): Promise<void> {
+    if (!this.user || !this.user.email) return;
+    const image_path = this.firebaseStorage.ref(`profile_images/${child_name}`);
+    await uploadString(image_path, data, 'base64', {
+        contentType: contentType
+    });
+   const newImageLink = await getDownloadURL(image_path);
+   await this.productsCollection.doc(child_name).update({
+    image_Link: newImageLink
+   })
+    
+    // console.log(data);
+}
 
 }

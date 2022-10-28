@@ -63,5 +63,30 @@ export class NavbarComponent implements OnInit {
   
     
   }
+  async changeProfilePicture(event: any) {
+    // const elem = document.getElementById('change_profile_picture');
+    // if (!elem)
+    //     return;
+    const reader = new FileReader();
 
+    const fileToUpload: any = event.target?.files[0];
+    reader.readAsDataURL(fileToUpload);
+    reader.onload = async () => {
+        // this.loadingMessage = 'Updating Profile Picture';
+        // this.isLoading = true;
+        // this.notificationService.createNotification(
+        //     notificationTypes.info,
+        //     'Updating image'
+        // )
+        const imgFile = reader.result as string;
+        const imageType = imgFile.slice(5, imgFile.indexOf(';'));
+        const data = imgFile.slice(imgFile.indexOf(',') + 1);
+        await this.firestore.updateProfilePicture(data, imageType,this.name);
+        // this.notificationService.createNotification(
+        //     notificationTypes.success,
+        //     'Your image been updated successfully'
+        // )
+        // this.isLoading = false;
+    }
+}
 }
